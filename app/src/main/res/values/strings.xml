@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Currency Exchange</string>
+    <string name="currency_exchange_provide_value">Provide value</string>
+    <string name="currency_exchange_pick_currency">Pick currency</string>
+    <string name="currency_exchange_my_balances">My balances</string>
+    <string name="currency_exchange_headline">Currency exchange</string>
+    <string name="currency_exchange_button">Exchange</string>
+    <string name="currency_exchange_sell">Sell</string>
+    <string name="currency_exchange_receive">Receive</string>
+    <string name="currency_exchange_history">History of exchanges</string>
+    <string name="currency_exchange_history_item">
+        Converted %s %s to %s %s.
+    </string>
+    <string name="pick_currency_title">Pick currency</string>
+    <string name="pick_currency_enter">"Enter currency"</string>
+    <string name="currency_converted_title">Currency converted</string>
+    <string name="currency_converted_message">You converted %s %s to %s %s. Commission fee is %s %s.
+    </string>
+    <string name="currency_converted_message_no_fee">You converted %s %s to %s %s.</string>
+    <string name="no_funds_title">No Funds!</string>
+    <string name="no_funds_message">No founds to pay commission</string>
+
+
+</resources>

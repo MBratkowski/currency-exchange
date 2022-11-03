@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spacingSmall">4dp</dimen>
+    <dimen name="spacingMedium">8dp</dimen>
+    <dimen name="spacingLarge">16dp</dimen>
+    <dimen name="spacingXLarge">32dp</dimen>
+    <dimen name="itemHeight">48dp</dimen>
+    <dimen name="buttonHeight">56dp</dimen>
+    <dimen name="separatorPadding">72dp</dimen>
+
+
+</resources>
