@@ -31,15 +31,14 @@ To build the app you need to create an `api.properties` file in the project's ro
 - **ui** - Implementation of Material3.
 - **view** - package which contains all element which user see and interact.
 
-## Architecture of View
-- 
-
 ## What can be improved
 - **Multi module application** - app should be divide for different modules which should be separate
 - **Error handling and parsing** - this logic should be delegated to some kind of special error parser.
 - **More unit test** - I didn't have enough time to test all classes, especially ViewModel
 - **Inconsistency in variables** - sometimes I use `BigDecimal`, sometimes I use `double`.
 - **Using Currency object from Java API** - I know that it exist - I could replace of my own Currency class by this from Java API.
+
+
   | Column of screenshots 1  | Column of screenshots 2  | Column of screenshots 3  |
   |:----------|:----------|:----------|
   |![Alt text](screenshots/main_screen.png)|![Alt text](screenshots/currency_picker.png)|![Alt text](screenshots/commission_fee_dialog.png)|
