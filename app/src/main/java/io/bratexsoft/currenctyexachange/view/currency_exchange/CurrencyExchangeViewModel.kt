@@ -111,19 +111,18 @@ class CurrencyExchangeViewModel @Inject constructor(
         receivingCurrency: Currency? = null
     ) {
         getCurrentBalances()
-        val currentState: CurrencyExchangeState = _uiState.value
         _uiState.updateState {
-            _uiState.value.copy(
-                sellingBalanceInformation = currentState.sellingBalanceInformation.copy(
-                    currency = sellingCurrency ?: currentState.sellingBalanceInformation.currency
+            it.copy(
+                sellingBalanceInformation = it.sellingBalanceInformation.copy(
+                    currency = sellingCurrency ?: it.sellingBalanceInformation.currency
                 ),
-                receivingBalanceInformation = currentState.receivingBalanceInformation.copy(
+                receivingBalanceInformation = it.receivingBalanceInformation.copy(
                     currency = receivingCurrency
-                        ?: currentState.receivingBalanceInformation.currency,
+                        ?: it.receivingBalanceInformation.currency,
                     amount = exchangeCurrencyManager.calculateReceivingAmount(
-                        currentState.sellingBalanceInformation.amount,
+                        it.sellingBalanceInformation.amount,
                         currency = receivingCurrency
-                            ?: currentState.receivingBalanceInformation.currency
+                            ?: it.receivingBalanceInformation.currency
                     )
                 )
             )
@@ -138,7 +137,7 @@ class CurrencyExchangeViewModel @Inject constructor(
             val balances = getCurrentBalanceUseCase()
             val eventHistoryList = getHistoryExchangeUseCase()
             _uiState.updateState {
-                _uiState.value.copy(
+                it.copy(
                     accountBalance = balances.toMutableMap(),
                     exchangeHistoryList = eventHistoryList
                 )
@@ -167,7 +166,7 @@ class CurrencyExchangeViewModel @Inject constructor(
 
     private fun setBalancesState(sellAmount: Double, receivingAmount: Double) {
         _uiState.updateState {
-            _uiState.value.copy(
+            it.copy(
                 sellingBalanceInformation = _uiState.value.sellingBalanceInformation.copy(
                     amount = sellAmount
                 ),
@@ -181,7 +180,7 @@ class CurrencyExchangeViewModel @Inject constructor(
 
     private fun resetBalances() {
         _uiState.updateState {
-            _uiState.value.copy(
+            it.copy(
                 sellingBalanceInformation = _uiState.value.sellingBalanceInformation.copy(
                     amount = 0.0
                 ),
@@ -198,6 +197,6 @@ class CurrencyExchangeViewModel @Inject constructor(
     }
 }
 
-inline fun <T> MutableStateFlow<T>.updateState(state: () -> T) {
-    this.value = state()
+inline fun <T> MutableStateFlow<T>.updateState(state: (state: T) -> T) {
+    this.value = state(this.value)
 }
